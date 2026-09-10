@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# Models and experiment artifacts
+models/**/*.pt
+models/**/*.pth
+experiments/results/*
+experiments/logs/*
+!experiments/results/.gitkeep
+!experiments/results/*.json
+!experiments/results/*.md
+!experiments/results/*.png
+!experiments/logs/.gitkeep
+!models/dqn/.gitkeep
+!models/alphazero/.gitkeep
+
+# Frontend (later)
+frontend/node_modules/
+frontend/dist/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+.cursor/

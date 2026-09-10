@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "generated_at": "2026-09-02T16:51:23.755052+00:00",
+    "agent": "mcts",
+    "search": "PUCT + uniform prior + random rollouts",
+    "opponent": "heuristic",
+    "minimax_depth": null,
+    "sims": [
+      50,
+      200,
+      800
+    ],
+    "games_per_budget": 100,
+    "paired_openings": 50,
+    "seed": 0,
+    "opening_plies": 4,
+    "note": "Paired openings. Focal agent is MCTSAgent (uniform PUCT, random rollouts). Cost column is mean tree_nodes/move, not alphabeta nodes."
+  },
+  "results": [
+    {
+      "depth": 50,
+      "games": 100,
+      "wins": 9,
+      "draws": 3,
+      "losses": 88,
+      "wins_as_p1": 5,
+      "games_as_p1": 50,
+      "wins_as_p2": 4,
+      "games_as_p2": 50,
+      "mean_nodes": 277.8613037447989,
+      "mean_ms": 16.424869446809844,
+      "median_ms": 17.18037493992597,
+      "win_rate": 0.09,
+      "draw_rate": 0.03,
+      "win_rate_p1": 0.1,
+      "win_rate_p2": 0.08
+    },
+    {
+      "depth": 200,
+      "games": 100,
+      "wins": 36,
+      "draws": 3,
+      "losses": 61,
+      "wins_as_p1": 20,
+      "games_as_p1": 50,
+      "wins_as_p2": 16,
+      "games_as_p2": 50,
+      "mean_nodes": 890.4368686868687,
+      "mean_ms": 62.81173442675017,
+      "median_ms": 65.7110630418174,
+      "win_rate": 0.36,
+      "draw_rate": 0.03,
+      "win_rate_p1": 0.4,
+      "win_rate_p2": 0.32
+    },
+    {
+      "depth": 800,
+      "games": 100,
+      "wins": 64,
+      "draws": 3,
+      "losses": 33,
+      "wins_as_p1": 38,
+      "games_as_p1": 50,
+      "wins_as_p2": 26,
+      "games_as_p2": 50,
+      "mean_nodes": 3125.735294117647,
+      "mean_ms": 264.79114058110287,
+      "median_ms": 290.06283346097916,
+      "win_rate": 0.64,
+      "draw_rate": 0.03,
+      "win_rate_p1": 0.76,
+      "win_rate_p2": 0.52
+    }
+  ]
+}

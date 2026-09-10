@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-ink-950 text-slate-100 antialiased font-sans;
+  background-image:
+    radial-gradient(1200px 600px at 10% -10%, rgba(92, 225, 230, 0.14), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(255, 77, 141, 0.12), transparent 50%),
+    linear-gradient(180deg, #05070c 0%, #0a0e18 40%, #05070c 100%);
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
