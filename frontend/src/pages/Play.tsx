@@ -33,7 +33,7 @@ export function PlayScreen({
     const t = window.setTimeout(async () => {
       setBusy(true);
       try {
-        setGame(await playAi(game.id));
+        setGame(await playAi(game));
       } catch (err) {
         onError(err instanceof Error ? err.message : "AI move failed");
       } finally {
@@ -57,7 +57,7 @@ export function PlayScreen({
     setBusy(true);
     onError(null);
     try {
-      setGame(await playMove(game.id, column));
+      setGame(await playMove(game, column));
     } catch (err) {
       onError(err instanceof Error ? err.message : "Move failed");
     } finally {

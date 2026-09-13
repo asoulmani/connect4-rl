@@ -44,7 +44,7 @@ def planes_from_canonical(canonical: np.ndarray) -> np.ndarray:
     """(6, 7) canonical board → float32 (2, 6, 7) (me, opponent)."""
     board = np.asarray(canonical, dtype=np.int8)
     if board.shape != (ROWS, COLS):
-        raise ValueError(f"canonical board must be {(ROWS, COLS)}, got {board.shape}")
+        raise ValueError(f"canonical board must be {(ROWS, COLS)}, got {board.shape}.")
     planes = np.empty(PLANE_SHAPE, dtype=np.float32)
     planes[0] = board == 1
     planes[1] = board == -1

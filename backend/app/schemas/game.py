@@ -12,8 +12,21 @@ class NewGameRequest(BaseModel):
     depth: Optional[int] = Field(default=None, ge=1, le=8)
 
 
-class MoveRequest(BaseModel):
+class GameContext(BaseModel):
+    """Client-owned game identity: move history + seat/agent metadata."""
+
+    moves: list[int] = Field(default_factory=list, max_length=42)
+    human_player: Literal[1, -1]
+    agent_id: str
+    agent_depth: Optional[int] = Field(default=None, ge=1, le=8)
+
+
+class MoveRequest(GameContext):
     column: int = Field(ge=0, le=6)
+
+
+class AiMoveRequest(GameContext):
+    pass
 
 
 class AgentDecisionSchema(BaseModel):
@@ -24,7 +37,7 @@ class AgentDecisionSchema(BaseModel):
 
 
 class GameState(BaseModel):
-    id: str
+    moves: list[int]
     board: list[list[int]]
     current_player: int
     human_player: int

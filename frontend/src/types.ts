@@ -13,7 +13,7 @@ export type AgentDecision = {
 };
 
 export type GameState = {
-  id: string;
+  moves: number[];
   board: number[][];
   current_player: number;
   human_player: number;

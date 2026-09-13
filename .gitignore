@@ -21,6 +21,7 @@ experiments/logs/*
 !experiments/results/*.png
 !experiments/logs/.gitkeep
 !models/dqn/.gitkeep
+!models/dqn/dqn.pt
 !models/alphazero/.gitkeep
 
 # Frontend (later)
