@@ -99,14 +99,14 @@ export function PlayScreen({
       : "uniform over legal columns";
 
   return (
-    <section className="flex flex-col items-center">
-      <div className="mb-8 flex w-full max-w-3xl items-center justify-between gap-4">
+    <section className="flex w-full min-w-0 flex-col items-center overflow-x-hidden">
+      <div className="mb-6 flex w-full max-w-3xl items-center justify-between gap-2 sm:mb-8 sm:gap-4">
         <PlayerCard label="You" color={youColor} active={humanTurn} />
-        <p className="font-display text-sm font-bold tracking-[0.3em] text-slate-500">VS</p>
+        <p className="shrink-0 font-display text-sm font-bold tracking-[0.3em] text-slate-500">VS</p>
         <PlayerCard label={aiLabel} color={aiColor} active={!humanTurn && !game.done} />
       </div>
 
-      <div className="flex w-full justify-center px-2">
+      <div className="flex w-full min-w-0 justify-center">
         <Board
           board={game.board}
           valid={game.valid_actions}
@@ -223,16 +223,16 @@ function PlayerCard({
       : "bg-neon-gold shadow-[0_0_24px_rgba(255,209,102,0.5)]";
   return (
     <div
-      className={`flex items-center gap-3 rounded-2xl border px-4 py-3 ${
+      className={`flex min-w-0 flex-1 items-center gap-2 rounded-2xl border px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3 ${
         active ? "border-white/25 bg-white/5" : "border-white/10 bg-ink-900/50"
       }`}
     >
-      <span className={`h-8 w-8 rounded-full ${disc}`} />
-      <div>
+      <span className={`h-7 w-7 shrink-0 rounded-full sm:h-8 sm:w-8 ${disc}`} />
+      <div className="min-w-0">
         <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">
           {active ? "To move" : "Waiting"}
         </p>
-        <p className="font-display text-lg font-bold">{label}</p>
+        <p className="truncate font-display text-base font-bold sm:text-lg">{label}</p>
       </div>
     </div>
   );

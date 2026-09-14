@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 
 const ROWS = 6;
 const COLS = 7;
-const CELL = 72;
 
 function discClass(value: number, winning: boolean, dim: boolean): string {
   const base = "absolute inset-[10%] rounded-full";
@@ -36,13 +35,14 @@ export function Board({
   const dim = Boolean(winning?.length);
 
   return (
-    <div className="w-full max-w-[min(92vw,42rem)]">
-      <div className="relative rounded-[28px] border border-white/10 bg-gradient-to-b from-[#2a3b5c] to-[#152033] p-3 shadow-board sm:p-4">
+    <div className="w-full max-w-[min(100%,42rem)]">
+      <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-gradient-to-b from-[#2a3b5c] to-[#152033] p-2 shadow-board sm:rounded-[28px] sm:p-4">
         <div
-          className="grid"
+          className="grid w-full"
           style={{
-            gridTemplateColumns: `repeat(${COLS}, minmax(${CELL}px, 1fr))`,
-            gridTemplateRows: `repeat(${ROWS}, minmax(${CELL}px, 1fr))`,
+            gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))`,
+            gridTemplateRows: `repeat(${ROWS}, minmax(0, 1fr))`,
+            aspectRatio: `${COLS} / ${ROWS}`,
           }}
         >
           {Array.from({ length: ROWS * COLS }, (_, i) => {
@@ -65,21 +65,25 @@ export function Board({
                 onMouseEnter={() => onHover(col)}
                 onMouseLeave={() => onHover(null)}
                 onClick={() => onDrop(col)}
-                className={`relative overflow-hidden rounded-full bg-[#070b14] m-1 ring-1 ring-black/60 disabled:cursor-default ${
+                className={`relative m-0.5 overflow-hidden rounded-full bg-[#070b14] ring-1 ring-black/60 disabled:cursor-default sm:m-1 ${
                   highlight ? "ring-2 ring-cyan-300" : ""
                 }`}
               >
                 {value !== 0 ? (
                   <motion.div
                     className={discClass(value, isWin, dim)}
-                    initial={isLatestInCol ? { y: -((row + 1) * CELL) } : { y: 0 }}
+                    initial={
+                      isLatestInCol ? { y: `-${(row + 1) * 100}%` } : { y: 0 }
+                    }
                     animate={{
                       y: 0,
                       scale: isWin ? [1, 1.07, 1] : 1,
                     }}
                     transition={{
                       y: { type: "spring", stiffness: 340, damping: 20 },
-                      scale: isWin ? { repeat: Infinity, duration: 1.15 } : { duration: 0 },
+                      scale: isWin
+                        ? { repeat: Infinity, duration: 1.15 }
+                        : { duration: 0 },
                     }}
                   />
                 ) : highlight ? (

@@ -4,13 +4,17 @@ I'm building Connect Four agents in order: random, heuristic, minimax, MCTS, DQN
 
 The browser demo lets you play the same bots the benchmarks use. The work is the agents and the experiments.
 
-**Playable now:** Random, Heuristic, Minimax, MCTS (uniform PUCT + random rollouts), DQN. AlphaZero is next.
+**Play now:** [https://play.ahmedsoulmani.com](https://play.ahmedsoulmani.com)
+
+**Playable agents:** Random, Heuristic, Minimax, MCTS (uniform PUCT + random rollouts), DQN. AlphaZero is next.
+
+**Technical report:** [https://www.ahmedsoulmani.com/projects/connect-four](https://www.ahmedsoulmani.com/projects/connect-four)
 
 ![Opponent menu](docs/figures/ui_menu.png)
 
 ![Human vs minimax depth 5](docs/figures/ui_play.png)
 
-## Play
+## Play locally
 
 Two terminals, from the repo root.
 
@@ -63,7 +67,7 @@ Connect Four with perfect play is a first-player win. None of these agents is a 
 
 ## Experiments
 
-Same protocol unless noted: paired random openings, both seats, 4 opening plies. Full write-up, plots, and caveats: `[docs/report.md](docs/report.md)`.
+Same protocol unless noted: paired random openings, both seats, 4 opening plies. Full write-up, plots, and caveats: [technical report](https://www.ahmedsoulmani.com/projects/connect-four).
 
 ### Minimax vs heuristic — can search beat a 1-ply tactician?
 
@@ -156,9 +160,9 @@ connect4/env          rules (the MDP)
 connect4/agents       policies
 connect4/evaluation   match runner + metrics
 connect4/training     experiment CLIs
-backend/             FastAPI session glue — not used for training
+backend/              FastAPI session glue — not used for training
 frontend/             React demo
-docs/report.md        full paper
+docs/figures/         UI screenshots
 ```
 
 
@@ -167,4 +171,4 @@ docs/report.md        full paper
 
 AlphaZero-style policy/value + MCTS on this same engine and eval protocol. MCTS and DQN are frozen except for the hooks that work needs.
 
-I used [Cursor](https://cursor.com) as a coding assistant, mainly for tests, the React demo, and APIs. The agents, the eval protocol, and the write-up in [`docs/report.md`](docs/report.md) are the part this repo is for.
+I used [Cursor](https://cursor.com) as a coding assistant, mainly for tests, the React demo, and APIs. The agents, the eval protocol, and the [technical report](https://www.ahmedsoulmani.com/projects/connect-four) are the part this repo is for.
